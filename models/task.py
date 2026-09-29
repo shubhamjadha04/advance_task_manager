@@ -63,6 +63,33 @@ class Task:
             print(f"{remaining} days are remaining")
 
 
+# task manager class
+class TaskManager:
+    def __init__(self):
+        self.Task_basket = []
 
 
+    # add task method
+    def add_task(self,task):
+        self.Task_basket.append(task)
+        print("task added successfully")
         
+        
+
+    #  reomve task method
+    def remove_task(self,task_id):
+
+        for Task in self.Task_basket:
+            if Task.task_id == task_id:
+                self.Task_basket.remove(Task)
+                print("Task remove successfully")
+                return
+            
+        else:
+            print("No task found")
+
+    # display task method
+    def display_task(self):
+        for Task in self.Task_basket:
+            Task.display_info()
+            
