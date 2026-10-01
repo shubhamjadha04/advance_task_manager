@@ -17,12 +17,39 @@ class User:
         
 class UserManager:
     def __init__(self):
-        self.users = []
+        self.users= []
 
 
     # add user
     def add_user(self,user):
         self.users.append(user)
         print("user added successfully.")
+
+
+    # remove user
+    def remove_user(self, user_id):
+
+        for user in self.users:
+            if user.user_id == user_id:
+                self.users.remove(user)
+                print("successfully deleted")
+                return
+        else:
+            print("no user found,")
+
+
+    # find user
+    def find_user(self,user_id):
+        for user in self.users:
+            if user.user_id == user_id:
+                user.display()
+
+            else:
+                print("user not found.")
+
+
+
+                
+
 
     

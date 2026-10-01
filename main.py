@@ -11,9 +11,21 @@ user1 = User(
     "shubham@gmail.com",
     "Admin"
 )
+user2 = User(
+    2,
+    "raj",
+    "rajkumar@gmail.com",
+    "manager"
+)
+
+
 
 admin = UserManager()
 admin.add_user(user1)
+admin.add_user(user2)
+# admin.add_user(user2)
+
+admin.find_user(1)
 
 
 
