@@ -66,12 +66,12 @@ class Task:
 # task manager class
 class TaskManager:
     def __init__(self):
-        self.Task_basket = []
+        self.task_basket = []
 
 
     # add task method
     def add_task(self,task):
-        self.Task_basket.append(task)
+        self.task_basket.append(task)
         print("task added successfully")
         
         
@@ -79,9 +79,9 @@ class TaskManager:
     #  reomve task method
     def remove_task(self,task_id):
 
-        for Task in self.Task_basket:
-            if Task.task_id == task_id:
-                self.Task_basket.remove(Task)
+        for task in self.task_basket:
+            if task.task_id == task_id:
+                self.task_basket.remove(Task)
                 print("Task remove successfully")
                 return
             
@@ -90,6 +90,6 @@ class TaskManager:
 
     # display task method
     def display_task(self):
-        for Task in self.Task_basket:
-            Task.display_info()
+        for task in self.yask_basket:
+            task.display_info()
             
