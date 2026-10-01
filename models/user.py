@@ -15,4 +15,14 @@ class User:
         print(f"Role: {self.role}")
 
         
-        
+class UserManager:
+    def __init__(self):
+        self.users = []
+
+
+    # add user
+    def add_user(self,user):
+        self.users.append(user)
+        print("user added successfully.")
+
+    

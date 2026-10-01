@@ -1,4 +1,5 @@
 from models.user import User
+from models.user import UserManager
 from models.task import Task
 from models.task import TaskManager
 from models.project import Project
@@ -11,7 +12,9 @@ user1 = User(
     "Admin"
 )
 
-# user1.display()
+admin = UserManager()
+admin.add_user(user1)
+
 
 
 task1 = Task(
@@ -33,13 +36,13 @@ task2 = Task(
     user1, 
     datetime(2026,9,20)
 )
-manager = TaskManager()
-manager.add_task(task1)
-manager.add_task(task2)
+# manager = TaskManager()
+# manager.add_task(task1)
+# manager.add_task(task2)
 
 # manager.display_task()
 
-manager.remove_task(6)
+# manager.remove_task(6)
 
 
 # project1 = Project(
