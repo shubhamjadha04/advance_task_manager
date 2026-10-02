@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from models.user import User
 
 class Task:
     def __init__(self,task_id,title ,description, status,priority,assigned_user,deadline):
@@ -64,7 +64,7 @@ class Task:
 
 
 # task manager class
-class TaskManager:
+class Manager(User):
     def __init__(self):
         self.task_basket = []
 
@@ -90,6 +90,6 @@ class TaskManager:
 
     # display task method
     def display_task(self):
-        for task in self.yask_basket:
+        for task in self.task_basket:
             task.display_info()
             
