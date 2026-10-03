@@ -1,5 +1,6 @@
-class User:
+from models.task import Task
 
+class User:
     def __init__(self,user_id, user_name,email,role):
         self.user_id = user_id
         self.user_name= user_name
@@ -16,7 +17,8 @@ class User:
 
         
 class Admin(User):
-    def __init__(self):
+    def __init__(self,user_id, user_name,email,role):
+        super().__init__(user_id, user_name,email,role)
         self.users= []
 
 
@@ -33,8 +35,8 @@ class Admin(User):
                 self.users.remove(user)
                 print("successfully deleted")
                 return
-            else:
-                print("no user found,")
+        else:
+            print("no user found,")
 
 
     # find user
@@ -47,17 +49,55 @@ class Admin(User):
         else:
             print("user not found.")
 
+
+#  manager class
+class Manager(User):
+    def __init__(self,user_id, user_name,email,role):
+        super().__init__(user_id, user_name,email,role)
+        self.task_basket = []
+
+
+    # add task method
+    def add_task(self,task):
+        self.task_basket.append(task)
+        print("task added successfully")
+        
+        
+
+    #  reomve task method
+    def remove_task(self,task_id):
+
+        for task in self.task_basket:
+            if task.task_id == task_id:
+                self.task_basket.remove(task)
+                print("Task remove successfully")
+                return
+            
+        else:
+            print("No task found")
+
+    # display task method
+    def display_task(self):
+        for task in self.task_basket:
+            task.display_info()
+
+
+
+# normal User class
 class Normaluser(User):
 
     def view_task(self):
-        pass
+        print("this is normal user.")
 
-    def update_task_status(self):
-        pass
-
+    def update_status(self,new_status):
+        valid_status = ["Pending", "In progress","completed"]
     
-
-
+        if new_status in valid_status:
+            self.status = new_status
+            print("status updated Successful.")
+    
+        else:
+            print("Invalid status.")
 
 
 
